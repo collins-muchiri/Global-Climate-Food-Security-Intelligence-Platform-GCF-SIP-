@@ -1,0 +1,22 @@
+name: gcf-sip-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas
+  - numpy
+  - pyarrow
+  - scipy
+  - scikit-learn
+  - xgboost
+  - lightgbm
+  - pyspark
+  - matplotlib
+  - seaborn
+  - pip
+  - pip:
+      - transformers
+      - langchain
+      - fastapi
+      - pydantic
+      - pytest

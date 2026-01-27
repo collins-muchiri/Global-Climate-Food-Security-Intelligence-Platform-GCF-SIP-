@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "gcf-sip"
+version = "0.1.0"
+description = "Global Climate & Food Security Intelligence Platform"
+authors = ["GCF-SIP Team"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^1.5"
+numpy = "^1.23"
+pyarrow = "^11.0"
+scipy = "^1.9"
+scikit-learn = "^1.2"
+xgboost = "^1.7"
+lightgbm = {version = "^3.3", optional = true}
+pyspark = {version = "^3.3", optional = true}
+transformers = "^4.32"
+langchain = "^0.0.208"
+fastapi = "^0.110"
+pydantic = "^1.10"
+matplotlib = "^3.7"
+seaborn = "^0.12"
+pytest = "^7.4"
+
+[tool.poetry.dev-dependencies]
+ruff = "^0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
