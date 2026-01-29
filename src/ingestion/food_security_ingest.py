@@ -24,6 +24,7 @@ from pathlib import Path
 from typing import List
 
 import pandas as pd
+import pandera as pa
 import requests
 from requests.exceptions import RequestException
 
@@ -136,7 +137,7 @@ def standardize_schema(df: pd.DataFrame, item_code: str) -> pd.DataFrame:
 
     standardized = (
         df[list(required_columns.keys())]
-        .rename(columns=required_columns)
+        .rename(columns=dict(required_columns))
         .assign(
             data_source="FAOSTAT",
             data_version=f"{DOMAIN}_{item_code}",
