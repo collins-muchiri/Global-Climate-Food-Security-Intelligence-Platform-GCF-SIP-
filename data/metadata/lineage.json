@@ -1,0 +1,5 @@
+{
+  "source": "FAOSTAT",
+  "ingestion": "Step 2 ingestion (FAOSTAT)",
+  "run_at": "<timestamp>"
+}
