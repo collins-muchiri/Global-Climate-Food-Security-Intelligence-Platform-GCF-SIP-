@@ -1,0 +1,11 @@
+# command: /tmp/venvs/gcf/bin/python src/lakehouse/bronze_food_security.py (direct run to reproduce e2e failure)
+OpenBLAS WARNING - could not determine the L2 cache size on this system, assuming 256k
+exit=0
+
+# command: uvicorn src.api.main:app --port 8601 + GET /health,/docs,/openapi.json
+/health -> 200 15 bytes
+/docs -> 200 935 bytes
+/openapi.json -> 200 470 bytes
+INFO:     127.0.0.1:32818 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32820 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32822 - "GET /openapi.json HTTP/1.1" 200 OK
