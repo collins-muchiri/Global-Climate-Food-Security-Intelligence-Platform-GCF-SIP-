@@ -111,7 +111,7 @@ The GCF-SIP is a production-grade strategic intelligence platform designed to su
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/bucky-ops/Global-Climate-Food-Security-Intelligence-Platform-GCF-SIP-.git
+   git clone https://github.com/collins-muchiri/Global-Climate-Food-Security-Intelligence-Platform-GCF-SIP-.git
    cd Global-Climate-Food-Security-Intelligence-Platform-GCF-SIP-
    ```
 
