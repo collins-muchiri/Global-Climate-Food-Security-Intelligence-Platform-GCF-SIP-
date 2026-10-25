@@ -1,0 +1,10 @@
+# RED evidence (pre-fix, captured 2026-10-25): bare 'pytest' from repo root on main
+CI installed ONLY pytest (manifest was uninstallable: ModuleOrPackageNotFoundError gcf-sip);
+collect/import of src.* and pandas/pyarrow-dependent tests could not succeed on a clean runner.
+Local pre-fix run on main (venv with deps, bare pytest):
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/e2e/test_lakehouse_end_to_end.py::test_end_to_end_lakehouse - As...
+FAILED tests/ingest/test_faostat_ingest.py::test_quality_score_perfect_data_scores_one
+FAILED tests/unit/test_validation.py::test_validation_pass_or_skip - ImportEr...
+3 failed, 12 passed, 2 warnings in 5.11s

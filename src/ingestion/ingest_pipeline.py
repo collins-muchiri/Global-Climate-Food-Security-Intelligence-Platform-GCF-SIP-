@@ -7,14 +7,24 @@ entry point for orchestration in Step 2.
 
 from typing import Dict
 
-try:
-    from climate_ingest import ingest_climate  # type: ignore
-    from food_security_ingest import ingest_food_security  # type: ignore
-    from economics_ingest import ingest_economics  # type: ignore
-except Exception:  # pragma: no cover
-    ingest_climate = None  # type: ignore
-    ingest_food_security = None  # type: ignore
-    ingest_economics = None  # type: ignore
+# Direct package imports (the project is installable since the packaging fix).
+# The former try/except flat-import fallback silently set ALL THREE functions
+# to None whenever any single name failed to import - and
+# `ingest_food_security` never existed (the module exposes
+# `ingest_faostat(item_codes)`), so every orchestration call quietly returned
+# "not_implemented" while the API looked healthy. Imports are now unconditional
+# and the missing zero-arg wrapper is explicit below.
+from src.ingestion.climate_ingest import ingest_climate
+from src.ingestion.economics_ingest import ingest_economics
+
+
+def ingest_food_security():
+    """Explicit placeholder: food-security ingestion requires item codes.
+
+    Call src.ingestion.food_security_ingest.ingest_faostat(item_codes) directly;
+    returning a labelled status beats a silent None from a swallowed ImportError.
+    """
+    return {"status": "not_implemented", "reason": "call ingest_faostat(item_codes)"}
 
 
 def run_all_ingestion() -> Dict[str, Dict[str, object]]:

@@ -93,9 +93,9 @@ The GCF-SIP is a production-grade strategic intelligence platform designed to su
 
 | Component | Status | Description |
 |-----------|--------|-------------|
-| **Data Ingestion** | ✅ Operational | FAOSTAT integration with fail-safe handling |
-| **API Layer** | ✅ Operational | FastAPI with health endpoints |
-| **Validation** | 🚧 In Development | Pandera schema enforcement |
+| **Data Ingestion** | 🧪 Unit-tested | Pure transformation/quality functions tested in CI; live FAOSTAT fetch has no CI mock seam yet (tracked in issues) |
+| **API Layer** | 🧪 Tested | /health + router mounting asserted in CI; no public deployment |
+| **Validation** | ✅ Schema-enforced | pandera schemas tested in CI (declared dependency; the test previously skipped in every environment) |
 | **ML Models** | 📋 Planned | Baseline prediction models |
 | **Dashboards** | 📋 Planned | Policy and executive views |
 | **Deployment** | 📋 Planned | Production CI/CD pipeline |

@@ -1,0 +1,6 @@
+# GREEN: full suite after fixes (venv py3.11, pip install -e '.[test]')
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+15 passed, 11 warnings in 3.58s
+exit: 0
+# git worktree after run:
+(empty = clean)
