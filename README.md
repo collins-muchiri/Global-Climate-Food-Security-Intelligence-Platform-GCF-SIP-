@@ -1,5 +1,11 @@
 # Global Climate & Food Security Intelligence Platform (GCF-SIP)
 
+*GCF-SIP — AI platform predicting food-insecurity risk and simulating climate scenarios for early action; Python.*
+
+![category](https://img.shields.io/badge/category-monitoring-evaluation-8B5CF6?style=flat-square) ![language](https://img.shields.io/badge/language-Python-2563EB?style=flat-square) ![license](https://img.shields.io/badge/license-MIT-16A34A?style=flat-square) ![maintenance](https://img.shields.io/badge/maintenance-active-16A34A?style=flat-square) ![repo](https://img.shields.io/badge/repo-gcf--food--security--intelligence-111827?style=flat-square)
+
+---
+
 ## Mission & Purpose
 
 The GCF-SIP is a production-grade strategic intelligence platform designed to support climate resilience and food security decision-making for governments, UN agencies, and development partners. The system integrates global climate and agricultural data to provide actionable insights, risk assessments, and scenario modeling capabilities.
@@ -111,7 +117,7 @@ The GCF-SIP is a production-grade strategic intelligence platform designed to su
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/collins-muchiri/Global-Climate-Food-Security-Intelligence-Platform-GCF-SIP-.git
+   git clone https://github.com/collins-muchiri/gcf-food-security-intelligence.git
    cd Global-Climate-Food-Security-Intelligence-Platform-GCF-SIP-
    ```
 
