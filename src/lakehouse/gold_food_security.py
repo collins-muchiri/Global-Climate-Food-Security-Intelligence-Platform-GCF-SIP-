@@ -11,7 +11,7 @@ def build_food_security_country_year():
     silver_path = SILVER_DIR / "food_security_fact.parquet"
     if not silver_path.exists():
         logging.error(f"Silver input not found: {silver_path}")
-        return
+        raise SystemExit(1)
 
     df = pd.read_parquet(silver_path)
 

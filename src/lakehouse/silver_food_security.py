@@ -11,7 +11,7 @@ def build_food_security_fact():
     bronze_path = BRONZE_DIR / "food_security_bronze.parquet"
     if not bronze_path.exists():
         logging.error(f"Bronze input not found: {bronze_path}")
-        return
+        raise SystemExit(1)
 
     df = pd.read_parquet(bronze_path)
 
@@ -27,8 +27,11 @@ def build_food_security_fact():
     ]
     missing = [c for c in cols if c not in df.columns]
     if missing:
+        # Fail loud: this branch previously logged and returned 0 WITHOUT
+        # writing the fact table - a schema violation disguised as success
+        # (caught live by tests/e2e, which then starved the gold stage).
         logging.error(f"Bronze input missing required columns: {missing}")
-        return
+        raise SystemExit(1)
 
     fact = df[cols].dropna(subset=["country_code", "year"])
 

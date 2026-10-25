@@ -1,4 +1,6 @@
 from pathlib import Path
+import logging
+
 import pandas as pd
 
 SILVER_DIR = Path("data/silver/facts")
@@ -10,7 +12,7 @@ def compute_quality_metrics():
     silver_path = SILVER_DIR / "food_security_fact.parquet"
     if not silver_path.exists():
         print(f"Silver input not found: {silver_path}")
-        return
+        raise SystemExit(1)
 
     df = pd.read_parquet(silver_path)
 
