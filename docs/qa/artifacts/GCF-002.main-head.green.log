@@ -1,0 +1,4 @@
+# R7: full gate on main HEAD e575746, 2026-10-25T15:31:21Z
+16 passed, 11 warnings in 5.20s
+suppressions: 0 compliant, 0 violation(s)
+drift: clean
