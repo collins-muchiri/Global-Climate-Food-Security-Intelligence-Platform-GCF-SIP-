@@ -3,10 +3,16 @@ name = "gcf-sip"
 version = "0.1.0"
 description = "Global Climate & Food Security Intelligence Platform"
 authors = ["GCF-SIP Team"]
+# The codebase imports everything as `src.*`; without this declaration Poetry
+# looked for a `gcf_sip/` package and `pip install -e .` NEVER worked
+# (ModuleOrPackageNotFoundError). Restructuring into a `gcf_sip` namespace is
+# tracked as a modernisation issue; declaring the real layout is the fix that
+# matches how every module imports today.
+packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-pandas = "^1.5"
+pandas = "^2.1.1"
 numpy = "^1.23"
 pyarrow = "^11.0"
 scipy = "^1.9"
@@ -20,9 +26,15 @@ fastapi = "^0.110"
 pydantic = "^1.10"
 matplotlib = "^3.7"
 seaborn = "^0.12"
-pytest = "^7.4"
+# test-only dependencies (optional; install via `pip install -e '.[test]'`)
+pytest = {version = ">=7.4", optional = true}
+pandera = {version = ">=0.17", optional = true}
+httpx = {version = ">=0.24", optional = true}
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.extras]
+test = ["pytest", "pandera", "httpx"]
+
+[tool.poetry.group.dev.dependencies]
 ruff = "^0.1"
 
 [build-system]

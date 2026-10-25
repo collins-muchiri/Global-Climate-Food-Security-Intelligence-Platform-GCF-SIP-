@@ -27,3 +27,10 @@ dist/
 # OS files
 .DS_Store
 .Thumbs.db
+
+# Pipeline artefacts (produced by lakehouse/governance runs; .gitkeep placeholders stay tracked)
+data/interim/
+data/bronze/
+data/silver/
+data/gold/
+data/metadata/

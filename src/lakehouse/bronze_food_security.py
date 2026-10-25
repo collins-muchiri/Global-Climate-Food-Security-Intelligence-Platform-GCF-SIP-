@@ -10,8 +10,10 @@ BRONZE_DIR.mkdir(parents=True, exist_ok=True)
 def build_bronze_food_security():
     input_path = INTERIM_DIR / "faostat_food_security.parquet"
     if not input_path.exists():
+        # Fail loud: exiting 0 with no output was a silent success that made
+        # downstream stages (and CI) believe the pipeline had run.
         logging.error(f"Interim input not found: {input_path}")
-        return
+        raise SystemExit(1)
 
     df = pd.read_parquet(input_path)
 

@@ -1,0 +1,8 @@
+# RED evidence chain (2026-10-25):
+1. main manifest uninstallable: poetry ModuleOrPackageNotFoundError 'gcf-sip'
+             raise ModuleOrPackageNotFoundError(
+         poetry.core.masonry.utils.module.ModuleOrPackageNotFoundError: No file/folder found for package gcf-sip
+
+2. CI therefore installed only pytest -> every run red (e.g. runs 40119418053, 40116607673)
+3. mid-fix suite state (new tests catching real defects): see GCF-001.pytest.midfix.red.log
+4. silver silent-success + governance NameError caught by e2e (see commit messages)

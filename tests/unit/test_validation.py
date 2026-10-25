@@ -2,12 +2,10 @@ import pandas as pd
 import pytest
 
 def test_validation_pass_or_skip():
-    try:
-        import pandera  # noqa: F401
-    except Exception:
-        pytest.skip("Pandera not installed; skipping validation tests")
-        return
-
+    # The former try/pytest.skip guard made this test vacuous: pandera was not
+    # a declared dependency anywhere, so the suite silently skipped in every
+    # environment (a test that can never run certifies nothing). pandera is
+    # now declared in the `test` extra and the import is unconditional.
     from src.validation.pandera_schemas import faostat_schema
     df = pd.DataFrame({
         "country_code": ["USA", "CAN"],
